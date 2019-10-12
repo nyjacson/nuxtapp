@@ -1,0 +1,43 @@
+.title{
+  position: relative;
+  padding: 0.5em;
+  background: $main;
+  color: white;
+  ::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px $grey;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: $text;
+  font-size: $size-small;
+  background: $info;
+  &:before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid $info;
+  }
+}
+
+.position_center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+}
