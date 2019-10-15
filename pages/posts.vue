@@ -20,6 +20,7 @@
 
 <script>
 import PostList from '~/components/PostList.vue'
+import ApiService from '~/common/api.service'
 
 export default {
   name: 'Posts',
@@ -37,15 +38,16 @@ export default {
     }
   },
   async asyncData({ $axios }) {
-    console.log('asyncData')
     const ip = await $axios.$get('http://icanhazip.com')
     console.log('ip', ip)
     return { ip }
   },
   methods: {
-    search() {
+    async search() {
       // search イベントを発火し、keywordを引数として渡す
       this.$emit('search', this.keyword)
+      const response = await ApiService.get('http://icanhazip.com')
+      console.log('res', response)
     }
   }
 }
